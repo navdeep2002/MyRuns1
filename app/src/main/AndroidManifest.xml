@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  MyRuns1 — AndroidManifest
+  Notes - (re-implemented, not copied):
+  • Camera + FileProvider pattern comes from the course “Phone Camera & Data Storage” lecture/demo
+  • Using a content:// Uri via FileProvider to pass EXTRA_OUTPUT securely (no file://)
+  • windowSoftInputMode="adjustResize" to keep ScrollView visible with soft keyboard (UI notes)
+  All entries below are written specifically for this app/package.
+
+  tip for marker: We dont use android:configChanges (explicitly disallowed by lab).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- declare the camera as option so the app still installs on devices without camera -->
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false" />
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Backward compatibility for older devices -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Navdeep_Bilin_MyRuns1">
+
+        <!-- Main profile activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.Navdeep_Bilin_MyRuns1">
+            <!-- launcher -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- FileProvider enabels secure content -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+
+    </application>
+</manifest>

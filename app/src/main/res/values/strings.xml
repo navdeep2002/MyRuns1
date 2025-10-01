@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Navdeep_Bilin_MyRuns1</string>
+
+    <string name="label_profile_photo">Profile Photo:</string>
+    <string name="cd_profile_photo">Current profile photo</string>
+    <string name="btn_change">CHANGE</string>
+    <string name="settings_name">Navdeep_Bilin_MyRuns1</string>
+    <string name="menu_label">Menu</string>
+    <string name="menu_button">⋮</string>
+
+
+    <string name="label_name">Name</string>
+    <string name="hint_name">Your Name</string>
+
+    <string name="label_email">Email</string>
+    <string name="hint_email">Your Email</string>
+
+    <string name="label_phone">Phone</string>
+    <string name="hint_phone">Your Phone Number</string>
+
+    <string name="label_gender">Gender</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_male">Male</string>
+
+    <string name="label_class">Class</string>
+    <string name="hint_class">eg. 2012</string>
+
+    <string name="label_major">Major</string>
+    <string name="hint_major">Your Major</string>
+
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+
+</resources>
